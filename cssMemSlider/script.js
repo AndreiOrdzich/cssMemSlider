@@ -4,7 +4,6 @@ let dot2 = document.getElementsByClassName("dot-2");
 let dot3 = document.getElementsByClassName("dot-3");
 let dot4 = document.getElementsByClassName("dot-4");
 
-
 function currentSlide(n) {
     showSlides(slideIndex = n);
     if (n == 1) {
@@ -29,9 +28,6 @@ function currentSlide(n) {
     }
 }
 
-
-
-
 function showSlides(n) {
 
     var i;
@@ -53,7 +49,5 @@ function showSlides(n) {
     if (slideIndex > slides.length) { slideIndex = 1 }
     slides[slideIndex - 1].style.display = "block";
 
-
 }
-
 showSlides(slideIndex);
