@@ -154,6 +154,7 @@
     justify-content: space-between;
     align-self: center;
     width: 90px;
+    min-width: 90px;
 }
 
 .dot-wrapper {
