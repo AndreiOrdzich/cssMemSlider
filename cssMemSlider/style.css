@@ -6,6 +6,7 @@
     padding-left: 20px;
     padding-right: 20px;
     overflow: hidden;
+    background-repeat: no-repeat;
     background: radial-gradient(ellipse farthest-corner at right bottom, #fedb37 0%, #FDB931 8%, #9f7928 30%, #8a6e2f 40%, transparent 80%), radial-gradient(ellipse farthest-corner at left top, #ffffff 0%, #ffffac 8%, #d1b464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
 }
 
@@ -14,6 +15,8 @@
 }
 
 .slideshow-container {
+    position: relative;
+    overflow: hidden;
     height: auto;
     margin: auto;
     background: linear-gradient(90deg, #b9deed, #efefef);
@@ -33,6 +36,7 @@
 
 .slide {
     display: flex;
+    overflow: hidden;
     flex-direction: column;
     justify-content: center;
     width: 100%;
@@ -47,8 +51,15 @@
 
 @media screen and (max-width: 640px) {
     .slide {
-        width: 400px;
+        width: auto;
         height: 300px;
+    }
+    .bottom-container {
+        flex-direction: column;
+    }
+    .textend {
+        order: 2;
+        height: 80px;
     }
 }
 
@@ -56,7 +67,8 @@
     width: auto;
     height: 100%;
     background-image: url(./assets/images/mem_1.jpg);
-    background-size: contain;
+    background-position: center;
+    background-size: cover;
     background-repeat: no-repeat;
     z-index: 100;
 }
@@ -65,7 +77,8 @@
     width: auto;
     height: 100%;
     background-image: url(./assets/images/mem_2.jpg);
-    background-size: contain;
+    background-position: center;
+    background-size: cover;
     background-repeat: no-repeat;
     z-index: 100;
 }
@@ -74,7 +87,8 @@
     width: auto;
     height: 100%;
     background-image: url(./assets/images/mem_3.jpg);
-    background-size: contain;
+    background-position: center;
+    background-size: cover;
     background-repeat: no-repeat;
     z-index: 100;
 }
@@ -83,51 +97,35 @@
     width: auto;
     height: 100%;
     background-image: url(./assets/images/mem_4.jpg);
-    background-size: contain;
+    background-position: center;
+    background-size: cover;
     background-repeat: no-repeat;
     z-index: 100;
 }
 
 @media screen and (max-width: 640px) {
-    .mem_1 {
+    /* .mem_1 {
         width: auto;
         height: 250px;
-        background-image: url(./assets/images/mem_1.jpg);
-        background-position: center;
-        background-size: cover;
-        z-index: 100;
     }
     .mem_2 {
         width: auto;
         height: 250px;
-        background-image: url(./assets/images/mem_2.jpg);
-        background-position: center;
-        background-size: cover;
-        z-index: 100;
     }
     .mem_3 {
         width: auto;
         height: 250px;
-        background-image: url(./assets/images/mem_3.jpg);
-        background-position: center;
-        background-size: cover;
-        z-index: 100;
     }
     .mem_4 {
         width: auto;
         height: 250px;
-        background-image: url(./assets/images/mem_4.jpg);
-        background-position: center;
-        background-size: cover;
-        z-index: 100;
-    }
+    } */
 }
 
 .textend {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    overflow-y: visible;
     -webkit-animation-name: textend;
     -webkit-animation-duration: 3s;
     animation-name: textend;
@@ -143,14 +141,6 @@
     /* or 133% */
     text-align: left;
     color: #0a0000;
-}
-
-
-/* On hover, add a black background color with a little bit see-through */
-
-.prev:hover,
-.next:hover {
-    background-color: rgba(0, 0, 0, 0.8);
 }
 
 
@@ -210,11 +200,9 @@
 @keyframes slide {
     from {
         margin-left: 100%;
-        opacity: .4
     }
     to {
         margin: 0px;
-        opacity: 1
     }
 }
 
@@ -236,11 +224,11 @@
     }
     @keyframes slide {
         from {
-            margin-left: 100%;
+            /* margin-left: 100%; */
             opacity: .4
         }
         to {
-            margin-left: calc((100% - 400px)/2);
+            /* margin-left: calc((100% - 400px)/2); */
             opacity: 1
         }
     }
