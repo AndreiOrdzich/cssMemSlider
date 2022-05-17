@@ -1,0 +1,221 @@
+.body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    padding-left: 20px;
+    padding-right: 20px;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background: radial-gradient(ellipse farthest-corner at right bottom, #fedb37 0%, #FDB931 8%, #9f7928 30%, #8a6e2f 40%, transparent 80%), radial-gradient(ellipse farthest-corner at left top, #ffffff 0%, #ffffac 8%, #d1b464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
+    -webkit-border-radius: 10px 10px;
+    -moz-border-radius: 10px 10px;
+    -ms-border-radius: 10px 10px;
+    -o-border-radius: 10px 10px;
+}
+
+.main {
+    height: fit-content;
+    overflow: hidden;
+    border: rgba(135, 221, 222, 0.672) 5px solid;
+    box-sizing: border-box;
+    border-radius: 10px 10px;
+    box-shadow: #18a3dd 3px;
+}
+
+.all {
+    overflow: hidden;
+}
+
+#slider {
+    /*положение слайдера*/
+    position: relative;
+    text-align: center;
+}
+
+#slider,
+#text-content {
+    /*центровка слайдера*/
+    margin: 0 auto;
+}
+
+#slides article {
+    /*все изображения справа друг от доруга*/
+    width: 20%;
+    float: left;
+}
+
+#text-content {
+    width: 500%;
+    max-width: 500%;
+    height: 90px;
+    line-height: 0;
+    overflow: hidden;
+}
+
+#slides .image {
+    /*устанавливает общий размер блока с изображениями*/
+    width: 500%;
+    line-height: 0;
+}
+
+#text-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.textend {
+    width: 20%;
+    transition: all 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
+}
+
+.textend p {
+    width: 100%;
+    height: 60px;
+    margin-top: 4%;
+    margin-left: 1%;
+    text-align: start;
+    font-size: 24px;
+    color: aliceblue;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 24px;
+    /* or 133% */
+    text-align: left;
+}
+
+@media screen and (max-width: 640px) {
+    #text-content {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .textend {
+        width: 20%;
+        transition: all 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
+    }
+}
+
+#overflow {
+    /*сркывает все, что находится за пределами этого блока*/
+    width: 100%;
+    overflow: hidden;
+}
+
+article img {
+    /*размер изображений слайдера*/
+    width: 100%;
+}
+
+label,
+a {
+    /*при наведении на стрелки или переключатели - курсор изменится*/
+    cursor: pointer;
+}
+
+.all input {
+    /*скрывает стандартные инпуты (чекбоксы) на странице*/
+    display: none;
+}
+
+
+/*позиция изображения при активации переключателя*/
+
+#switch1:checked~#slides .image {
+    margin-left: 0;
+}
+
+#switch2:checked~#slides .image {
+    margin-left: -100%;
+}
+
+#switch3:checked~#slides .image {
+    margin-left: -200%;
+}
+
+#switch4:checked~#slides .image {
+    margin-left: -300%;
+}
+
+#switch1:checked~#text-content .textend {
+    margin-left: 0%;
+}
+
+#switch2:checked~#text-content .textend {
+    margin-left: -26.5%
+}
+
+#switch3:checked~#text-content .textend {
+    margin-left: -80%;
+}
+
+#switch4:checked~#text-content .textend {
+    margin-left: -240%;
+}
+
+#controls {
+    /*положение блока всех управляющих элементов*/
+    margin: -25% 0 0 0;
+    width: 120%;
+    height: 50px;
+}
+
+label {
+    /*стиль отдельного переключателя*/
+    border-radius: 10px;
+    /*скругление углов*/
+    display: inline-block;
+    /*расположение в строку*/
+    width: 15px;
+    height: 15px;
+    background-clip: padding-box;
+    line-height: 30px;
+    cursor: pointer;
+    background: #bbb;
+}
+
+#active {
+    /*расположение блока с переключателями*/
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100px;
+    height: 50px;
+    margin: auto;
+    text-align: center;
+}
+
+#active label:hover {
+    /*поведение чекбокса при наведении*/
+    background: #76c8ff;
+    border-color: #777 !important;
+    /*выполнение в любом случае*/
+}
+
+label:before {
+    content: "";
+    position: absolute;
+    margin-left: -15px;
+    width: 25px;
+    height: 35px;
+}
+
+
+/*цвет активного лейбла при активации чекбокса*/
+
+#switch1:checked~#active label:nth-child(1),
+#switch2:checked~#active label:nth-child(2),
+#switch3:checked~#active label:nth-child(3),
+#switch4:checked~#active label:nth-child(4) {
+    background: #18a3dd;
+    border-color: #18a3dd !important;
+}
+
+#slides .image {
+    /*анимация пролистывания изображений*/
+    transition: all 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
+}
